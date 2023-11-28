@@ -1,0 +1,3 @@
+taospy[ws]
+pandas
+sqlalchemy

@@ -1,0 +1,14 @@
+#####################################################
+# PSQL command `psql -U postgres -h localhost`
+#####################################################
+
+CREATE TABLE tsdb;
+
+## switch to the database
+\c tsdb
+
+CREATE EXTENSION IF NOT EXISTS timescaledb;
+
+## Verify the installation
+\dx
+

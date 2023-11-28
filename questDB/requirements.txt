@@ -1,0 +1,5 @@
+questdb
+pandas
+pyarrow
+psycopg2
+sqlalchemy

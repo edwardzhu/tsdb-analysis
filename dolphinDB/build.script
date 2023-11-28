@@ -1,0 +1,16 @@
+dbName = "<db name>"
+tablename = "<table name>"
+if (existsDatabase(dbName)) {
+    dropDatabase(dbName)
+}
+
+dateDomain = database("", VALUE, 2010.01.01..2100.01.01)
+symDomain = database("", HASH, [SYMBOL, 40])
+db = database(dbName, COMPO, [dateDomain, symDomain], engine="TSDB")
+/*db = database(dbName, COMPO, [dateDomain, symDomain], engine="OLAP")*/
+
+cols = `OpenTime`Instrument`Open`High`Low`Close`Volume
+types = [DATETIME, SYMBOL, DECIMAL64(8), DECIMAL64(8), DECIMAL64(8), DECIMAL64(8), DECIMAL64(8)]
+spotSchema = table(1:0, cols, types)
+db.createPartitionedTable(spotSchema, tablename, partitionColumns=`OpenTime`Instrument, sortColumns=`Instrument`OpenTime)
+/*db.createPartitionedTable(spotSchema, tablename, partitionColumns=`OpenTime`Instrument)*/

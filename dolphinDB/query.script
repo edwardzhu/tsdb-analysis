@@ -1,0 +1,1 @@
+select first(Open)$STRING,max(High)$STRING,min(Low)$STRING,last(Close)$STRING,sum(Volume)$STRING from <tablename> where Instrument = "BTCUSDT" group by Instrument,bar(OpenTime, 5*60)

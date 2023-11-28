@@ -1,0 +1,1 @@
+select first("OpenTime") as "BucketTime", "Instrument", first("Open", "OpenTime"), max("High"), min("Low"), last("Close", "OpenTime"), sum("Volume") from bnbusdt interval(5m); 

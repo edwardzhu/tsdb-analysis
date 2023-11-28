@@ -1,0 +1,1 @@
+select time_bucket('5 minutes', "OpenTime") as "BucketTime", "Instrument", first("Open", "OpenTime"), max("High"), min("Low"), last("Close", "OpenTime"), sum("Volume") from spot where "Instrument" = 'BTCUSDT' group by "BucketTime", "Instrument" order by "BucketTime"; 

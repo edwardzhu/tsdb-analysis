@@ -1,0 +1,1 @@
+SELECT 'OpenTime', Instrument, first(Open) as Open, max(High) as High, min(Low) as Low, last(Close) as Close, SUM(Volume) as Volume FROM spot WHERE Instrument = 'BNBUSDT' SAMPLE BY 5m;

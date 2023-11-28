@@ -1,0 +1,1 @@
+CREATE TABLE spot(OpenTime timestamp, Instrument string, Open double, High double, Low double, Close double, Volume double) timestamp(OpenTime) PARTITION BY DAY;
